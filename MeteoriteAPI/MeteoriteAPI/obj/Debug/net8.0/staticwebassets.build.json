@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "uHMdlf2EMe4tkl5EF5dcvSDYmmaxMMg85vHl/+JjvPU=",
+  "Source": "MeteoriteAPI.Web",
+  "BasePath": "_content/MeteoriteAPI.Web",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

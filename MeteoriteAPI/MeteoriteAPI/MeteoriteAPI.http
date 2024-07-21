@@ -1,0 +1,6 @@
+@MeteoriteAPI_HostAddress = http://localhost:5139
+
+GET {{MeteoriteAPI_HostAddress}}/meteorite/
+Accept: application/json
+
+###

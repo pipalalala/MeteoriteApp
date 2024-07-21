@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\MeteoriteAPI.Web.props" />
+</Project>

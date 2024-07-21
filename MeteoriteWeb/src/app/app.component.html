@@ -1,0 +1,62 @@
+<div class="controls">
+  <mat-form-field>
+    <mat-label>Date from</mat-label>
+    <mat-select #dateFrom (selectionChange)="onDateFilterChange()">
+      @for (dateFrom of dateRange; track dateFrom) {
+        <mat-option value="{{dateFrom}}">{{dateFrom}}</mat-option>
+      }
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Date to</mat-label>
+    <mat-select #dateTo (selectionChange)="onDateFilterChange()">
+      @for (dateTo of dateRange; track dateTo) {
+        <mat-option value="{{dateTo}}">{{dateTo}}</mat-option>
+      }
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Class</mat-label>
+    <mat-select #recClass (selectionChange)="onRecClassChange()">
+      @for (class of recClassList; track class) {
+        <mat-option value="{{class}}">{{class}}</mat-option>
+      }
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Name</mat-label>
+    <input [(ngModel)]="nameSearch" type="text" matInput (keyup)="onNameChange()">
+  </mat-form-field>
+</div>
+
+
+<div class="table__container">
+  <table mat-table matSort [dataSource]="dataSource">
+    <ng-container matColumnDef="year">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Год</th>
+      <td mat-cell *matCellDef="let group">{{group.year}}</td>
+      <td mat-footer-cell *matFooterCellDef><b>Total</b></td>
+    </ng-container>
+
+    <ng-container matColumnDef="count">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Количество метеоритов</th>
+      <td mat-cell *matCellDef="let group">{{group.count}}</td>
+      <td mat-footer-cell *matFooterCellDef>{{meteoriteGroupTotalCount}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="sumMass">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Суммарная масса</th>
+      <td mat-cell *matCellDef="let group">{{group.sumMass}}</td>
+      <td mat-footer-cell *matFooterCellDef><b>{{meteoriteGroupTotalSumMass}}</b></td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let group; columns: displayedColumns;"></tr>
+    <tr mat-footer-row *matFooterRowDef="displayedColumns"></tr>
+  </table>
+</div>
+
+<router-outlet />
